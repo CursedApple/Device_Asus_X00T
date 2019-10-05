@@ -132,7 +132,13 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    libxml2 \
+    libxml2 
+
+# Google Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/privapp-permissions-gcam.xml:system/etc/permissions/privapp-permissions-gcam.xml
+
+PRODUCT_PACKAGES += \
     GoogleCamera
 
 # Connectivity Engine support (CNE)
@@ -461,6 +467,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.X00T
 
+<<<<<<< HEAD
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
@@ -514,3 +521,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
+=======
+# Verity
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
+$(call inherit-product, build/target/product/verity.mk)
+>>>>>>> b6c46c8df... tissot: Adapt Google Camera for Android 10
